@@ -29,9 +29,18 @@ public class Node {
         return label;
     }
 
+    public Node getLeftChild() {
+        return leftChild;
+    }
+
+    public Node getRightChild() {
+        return rightChild;
+    }
+
     public void setBranch(String branch) {
         this.branch = branch;
     }
+
 
     @Override
     public String toString() {

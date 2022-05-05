@@ -39,4 +39,27 @@ public class HuffmanTree {
     public ArrayList<Node> getNodes() {
         return nodes;
     }
+
+    public String decode(String bin) {
+        Node root = nodes.get(0);
+        String res = "";
+
+        for(int i=0;i<bin.length();){
+            Node node = root;
+
+            while(node.getLeftChild() != null && node.getRightChild() != null && i<bin.length()){
+
+                if(bin.charAt(i) == '0'){
+                    node = node.getLeftChild();
+                }
+
+                else{
+                    node = node.getRightChild();
+                }
+                i++;
+            }
+            res += node.getLabel();
+        }
+        return res;
+    }
 }
