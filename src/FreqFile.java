@@ -23,7 +23,7 @@ public class FreqFile {
         return number;
     }
 
-    public LinkedHashMap<String,Integer> read(){
+    public LinkedHashMap<String,Integer> getFreqDict(){
         LinkedHashMap<String,Integer> freq = new LinkedHashMap<String,Integer>();
 
         while (file_reader.hasNextLine()) {
