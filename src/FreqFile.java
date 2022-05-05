@@ -23,8 +23,8 @@ public class FreqFile {
         return number;
     }
 
-    public LinkedHashMap read(){
-        LinkedHashMap<String, Integer> freq = new LinkedHashMap<String, Integer>();
+    public LinkedHashMap<String,Integer> read(){
+        LinkedHashMap<String,Integer> freq = new LinkedHashMap<String,Integer>();
 
         while (file_reader.hasNextLine()) {
             String line = file_reader.nextLine();

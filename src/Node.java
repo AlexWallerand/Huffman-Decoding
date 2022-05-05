@@ -13,11 +13,28 @@ public class Node {
         this.branch = "";
     }
 
+    public Node(String label, int frequency, Node leftChild, Node rightChild) {
+        this.label = label;
+        this.frequency = frequency;
+        this.leftChild = leftChild;
+        this.rightChild = rightChild;
+        this.branch ="";
+    }
+
     public int getFrequency() {
         return this.frequency;
     }
 
+    public String getLabel() {
+        return label;
+    }
+
     public void setBranch(String branch) {
         this.branch = branch;
+    }
+
+    @Override
+    public String toString() {
+        return "label='" + label + '\'' + ", frequency=" + frequency + ", branch=" + branch + " {" + leftChild + rightChild + "} ";
     }
 }
