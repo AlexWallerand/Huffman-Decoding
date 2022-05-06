@@ -12,7 +12,8 @@ public class Tests {
         BinFile f = new BinFile("exemple");
         String bin = f.getBinToStr();
         String res = tree.decode(bin);
-        System.out.println(res);
+        DecompFile output = new DecompFile("exemple");
+        output.write_text(res);
 
     }
 }
