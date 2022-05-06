@@ -14,6 +14,8 @@ public class Tests {
         String res = tree.decode(bin);
         DecompFile output = new DecompFile("exemple");
         output.write_text(res);
+        CompressRate compressRate = new CompressRate("exemple");
+        compressRate.calculate();
 
     }
 }
