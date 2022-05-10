@@ -73,6 +73,6 @@ public class Node {
         /**
          * Override of the toString method to display a node's attributes for tests.
          */
-        return "label='" + label + '\'' + ", frequency=" + frequency + ", branch=" + branch + " {" + leftChild + rightChild + "} ";
+        return "label='" + label + '\'' + ", frequency=" + frequency + ", branch=" + branch + " [" + leftChild + rightChild + "] ";
     }
 }

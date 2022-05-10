@@ -45,11 +45,26 @@ public class FreqFile {
 
         while (file_reader.hasNextLine()) {
             String line = file_reader.nextLine();
-            String[] data = line.split(" ");
-            freq.put(data[0],Integer.parseInt(data[1]));
+            char character  = line.charAt(0);
+            String c;
+            String number;
+
+            if(character == '\\'){
+                c = "\n";
+            }else{
+                c = Character.toString(character);
+            }
+
+            if (character != ' ') {
+                number = line.split(" ")[1];
+            }
+            else{
+                number = line.split(" ")[2];
+            }
+
+            freq.put(c,Integer.parseInt(number));
         }
         return freq;
     }
-
 
 }

@@ -32,9 +32,20 @@ public class BinFile {
          * @returns res, the sequence of bits of the file
          */
         int ch;
-        String res = "";
+        String res = Integer.toBinaryString(reader.read());
         while((ch = reader.read()) != -1){
-            res = res.concat(Integer.toBinaryString(ch));
+            if(Integer.toBinaryString(ch).length() != 8){
+                String temp = "";
+                String temp_res = "";
+                for(int i=0;i<(8-Integer.toBinaryString(ch).length());i++){
+                    temp += "0";
+                }
+                temp_res = temp + Integer.toBinaryString(ch);
+                res += temp_res;
+            }
+            else{
+                res += Integer.toBinaryString(ch);
+            }
         }
         reader.close();
         return res;
