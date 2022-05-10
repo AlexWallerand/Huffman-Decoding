@@ -5,15 +5,16 @@ public class Tests {
 
     public static void main(String[] args) throws IOException {
 
-        FreqFile file = new FreqFile("exemple");
+        FreqFile file = new FreqFile("extraitalice");
         int nb_characters = file.getNumberOfCharacters();
-        LinkedHashMap<String,Integer> freq = file.getFreqDict();
+        LinkedHashMap<String, Integer> freq = file.getFreqDict();
         HuffmanTree tree = new HuffmanTree(freq);
-        BinFile f = new BinFile("exemple");
+        System.out.println(tree.getNodes());
+        BinFile f = new BinFile("extraitalice");
         String bin = f.getBinToStr();
         String res = tree.decode(bin);
-        DecompFile output = new DecompFile("exemple");
+        System.out.println(res);
+        DecompFile output = new DecompFile("extraitalice");
         output.write_text(res);
-
     }
 }
