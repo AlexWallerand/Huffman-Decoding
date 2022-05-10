@@ -5,17 +5,18 @@ public class Tests {
 
     public static void main(String[] args) throws IOException {
 
-        FreqFile file = new FreqFile("exemple");
+        FreqFile file = new FreqFile("textesimple");
         int nb_characters = file.getNumberOfCharacters();
-        LinkedHashMap<String,Integer> freq = file.getFreqDict();
+        LinkedHashMap<String, Integer> freq = file.getFreqDict();
         HuffmanTree tree = new HuffmanTree(freq);
-        BinFile f = new BinFile("exemple");
+        System.out.println(tree.getNodes());
+        BinFile f = new BinFile("textesimple");
         String bin = f.getBinToStr();
         String res = tree.decode(bin);
-        DecompFile output = new DecompFile("exemple");
+        System.out.println(res);
+        DecompFile output = new DecompFile("textesimple");
         output.write_text(res);
-        CompressRate compressRate = new CompressRate("exemple");
+        CompressRate compressRate = new CompressRate("textesimple");
         compressRate.calculate();
-
     }
 }
