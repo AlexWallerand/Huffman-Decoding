@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         // Read the frequency file and get the data into a map
-        FreqFile file = new FreqFile("extraitalice");
+        FreqFile file = new FreqFile("alice");
         int nb_characters = file.getNumberOfCharacters();
         LinkedHashMap<String, Integer> freq = file.getFreqDict();
 
@@ -14,7 +14,7 @@ public class Main {
         HuffmanTree tree = new HuffmanTree(freq);
 
         // Read the binary file to convert the bytes to a binary string
-        BinFile f = new BinFile("extraitalice");
+        BinFile f = new BinFile("alice");
         String bin = f.getBinToStr();
 
         // Decode the binary string by coursing the HuffmanTree
@@ -23,9 +23,9 @@ public class Main {
         float average = res.getAverageNumberOfBits();
 
         // Generate the results in a text file
-        DecompFile output = new DecompFile("extraitalice");
+        DecompFile output = new DecompFile("alice");
         output.write_text(text);
-        CompressRate compressRate = new CompressRate("extraitalice");
+        CompressRate compressRate = new CompressRate("alice");
         System.out.printf("Average bits per character: " + "%.2f%n", average);
         compressRate.calculate();
     }
