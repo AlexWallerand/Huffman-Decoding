@@ -48,33 +48,40 @@ public class HuffmanTree {
         return nodes;
     }
 
-    public String decode(String bin) {
+    public DecodeResults decode(String bin) {
         /**
          * Method to decode a string of bits, by doing an in-depth course of the HuffmanTree
          * @param bin, string that contains a sequence of bits
-         * @returns res, the result of the decoding process
+         * @returns DecodeResults, the result of the decoding process, which contains the text and a map with length of the characters
          */
         Node root = nodes.get(0);
-        String res = "";
+        String text = "";
+        LinkedHashMap<String, Integer> char_len = new LinkedHashMap<>();
+        int nb = 0;
         while (bin.length() != 0) {
             if (bin.charAt(0) == '0' && root.getLeftChild() != null) {
                 root = root.getLeftChild();
                 bin = bin.substring(1);
+                nb++;
                 if(bin.length() == 0){
-                    res += root.getLabel();
+                    text += root.getLabel();
                 }
             } else if (bin.charAt(0) == '1' && root.getRightChild() != null) {
                 root = root.getRightChild();
                 bin = bin.substring(1);
+                nb++;
                 if(bin.length() == 0){
-                    res += root.getLabel();
+                    text += root.getLabel();
                 }
             } else if (root.getLeftChild() == null && root.getRightChild() == null) {
-                res += root.getLabel();
+                String character = root.getLabel();
+                text += character;
+                char_len.put(character,nb);
                 root = nodes.get(0);
+                nb = 0;
             }
         }
-        return res;
+        return new DecodeResults(text, char_len);
 
     }
 }

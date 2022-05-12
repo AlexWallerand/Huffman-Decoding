@@ -16,7 +16,7 @@ public class BinFile {
     public BinFile(String file_name) throws FileNotFoundException {
         /**
          * Constructor of the class, that instantiates the FileInputStream and the BufferedInputStream
-         * @params file_name, name of the file
+         * @param file_name, name of the file
          * @throws FileNotFoundException
          */
         this.file_name = file_name;
